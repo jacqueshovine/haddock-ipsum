@@ -14,4 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [WordController::class, 'index']);
+Route::get('/', function () {
+    return view('index');
+});

@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Word extends Model
 {
     use HasFactory;
+
+    public $fillable = ['content'];
+
+    public function setContent(string $content) 
+    {
+        $this->content = $content;
+    }
 }
