@@ -8,12 +8,15 @@ use Livewire\Component;
 class WordGenerator extends Component
 {
 
-    public $count = 1;
+    public $count = 10;
 
     public function render()
     {
 
-        $words = Word::all()->random()->limit($this->count)->get();
+        $words = Word::all();
+        $max = $words->count();
+
+        $words = $words->random($this->count > $max ? $max : $this->count);
 
         if ( empty($this->count) || $this->count === 0)
         {
