@@ -8,7 +8,7 @@ use Livewire\Component;
 class WordGenerator extends Component
 {
 
-    public $count = 10;
+    public int $count = 10;
 
     public function render()
     {

@@ -8,10 +8,10 @@ use Livewire\Component;
 class TextGenerator extends Component
 {
 
-    public $count = 1;
-    private $min_words = 40;
-    private $max_words = 80;
-    private $max_paragraphs = 30;
+    public int $count = 1;
+    private int $min_words = 40;
+    private int $max_words = 80;
+    private int $max_paragraphs = 30;
 
     public function render()
     {
