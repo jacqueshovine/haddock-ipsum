@@ -20,7 +20,7 @@ class TextGenerator extends Component
         $paragraphs = [''];
 
         for ($i = 0; 
-             $i < ($this->count <= $this->max_paragraphs ? $this->count : $this->max_paragraphs); 
+             $i < min(max($this->count, 1), $this->max_paragraphs); 
              $i++)
         {
 
