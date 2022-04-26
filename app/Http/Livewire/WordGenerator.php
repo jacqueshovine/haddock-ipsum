@@ -8,7 +8,7 @@ use Livewire\Component;
 class WordGenerator extends Component
 {
 
-    public int $count = 10;
+    public $count = 10;
 
     public function render()
     {
@@ -18,7 +18,7 @@ class WordGenerator extends Component
 
         $words = $words->random($this->count > $max ? $max : $this->count);
 
-        if ( empty($this->count) || $this->count === 0)
+        if ( empty($this->count) || $this->count === 0 || !is_numeric($this->count))
         {
             $empty = new Word();
             $empty->setContent('Inutile capitaine. Il est trop loin maintenant.');
