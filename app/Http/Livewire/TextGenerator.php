@@ -18,26 +18,32 @@ class TextGenerator extends Component
 
         $words = Word::all();
         $paragraphs = [''];
-        
-        if ( !empty($this->count) && $this->count !== 0 && is_numeric($this->count))
+
+        if (!empty($this->count) && $this->count !== 0 && is_numeric($this->count) )
         {
             for ($i = 0; 
-            $i < ($this->count <= $this->max_paragraphs ? $this->count : $this->max_paragraphs); 
+            $i < min(max($this->count, 1), $this->max_paragraphs); 
             $i++)
             {
-
-                $current_word_count = rand($this->min_words, $this->max_words);
-
-                $current_paragraph = '';
-
-                for ($j = 0; $j < $current_word_count; $j++)
+                for ($i = 0; 
+                $i < ($this->count <= $this->max_paragraphs ? $this->count : $this->max_paragraphs); 
+                $i++)
                 {
-                    $current_paragraph .= $words->random(1)->sole()->content . ' ';
-                }
 
-                $paragraphs[$i] = $current_paragraph;
-            }
+                    $current_word_count = rand($this->min_words, $this->max_words);
+
+                    $current_paragraph = '';
+
+                    for ($j = 0; $j < $current_word_count; $j++)
+                    {
+                        $current_paragraph .= $words->random(1)->sole()->content . ' ';
+                    }
+
+                    $paragraphs[$i] = $current_paragraph;
+                }
+            }        
         }
+
 
 
 
