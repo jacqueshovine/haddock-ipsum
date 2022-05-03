@@ -1,10 +1,28 @@
 
 document.addEventListener('alpine:init', () => {
 
-    Alpine.magic('clipboard', () => {
+    Alpine.data('copy_button', () => ({
+        open: false,
 
-        var text = document.getElementById('paragraphs').textContent.trim()
+        copy: {
+            ['x-on:click']() {
 
-        return subject => navigator.clipboard.writeText(text)
-    })
+                this.open = !this.open
+                
+                setTimeout(() => {
+                    this.open = !this.open
+                }, 2000)
+
+                let text = document.getElementById('paragraphs').textContent.trim()
+
+                return subject => navigator.clipboard.writeText(text)
+            },
+        },
+     
+        toast: {
+            ['x-show']() {
+                return this.open
+            },
+        },
+    }))
 })
