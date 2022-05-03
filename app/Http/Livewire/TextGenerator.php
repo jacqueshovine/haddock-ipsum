@@ -17,7 +17,13 @@ class TextGenerator extends Component
     {
 
         $words = Word::all();
-        $paragraphs = [''];
+        $paragraphs = ['Haddock ipsum dolor sit amet'];
+
+
+        /*
+            * TO DO : 
+            * - Implement feature to add exclamation marks if desired
+            */
 
         if (!empty($this->count) && $this->count !== 0 && is_numeric($this->count) )
         {
@@ -29,6 +35,13 @@ class TextGenerator extends Component
                 $i < ($this->count <= $this->max_paragraphs ? $this->count : $this->max_paragraphs); 
                 $i++)
                 {
+
+                    /*
+                     * TO DO : 
+                     * - The same word should not appear twice in a row
+                     * - Add punctuation
+                     * - Uppercase first letter of each paragraph and after a full stop
+                     */
 
                     $current_word_count = rand($this->min_words, $this->max_words);
 
