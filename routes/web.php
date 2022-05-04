@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\WordController;
+use App\Models\Word;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('index', [
+        'words' => Word::all(),
+    ]);
 });
 
 Route::get('about', function () {

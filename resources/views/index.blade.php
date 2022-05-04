@@ -7,6 +7,7 @@
                     <a href="https://fr.wikipedia.org/wiki/Lorem_ipsum" 
                     class="text-blue-600 visited:text-purple-600"
                     target="_blank">lorem ipsum</a>.
+                    Les paragraphes générés sont composés de mots tirés au hasard parmi le large éventail de jurons prononcés par le capitaine au cours de ses aventures.
                 </p>
                 <p class="my-4">
                     Il conviendra à merveille aux amateurs de langage fleuri et à tous les tintinophiles.
