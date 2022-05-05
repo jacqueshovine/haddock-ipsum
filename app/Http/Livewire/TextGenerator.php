@@ -49,7 +49,7 @@ class TextGenerator extends Component
 
                     for ($j = 0; $j < $current_word_count; $j++)
                     {
-                        $current_paragraph .= $words->random(1)->sole()->content . ' ';
+                        $current_paragraph .= $words->random(1)->sole()->singular . ' ';
                     }
 
                     $paragraphs[$i] = $current_paragraph;

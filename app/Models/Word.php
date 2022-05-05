@@ -11,6 +11,6 @@ class Word extends Model
 
     public function setContent(string $content) 
     {
-        $this->content = $content;
+        $this->singular = $content;
     }
 }
