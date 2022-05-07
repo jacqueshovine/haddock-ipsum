@@ -5,6 +5,11 @@
         @apply text-2xl;
         @apply my-4;
     }
+
+    h3 {
+        @apply text-xl;
+        @apply my-4;
+    }
 }
 
 @tailwind components;
