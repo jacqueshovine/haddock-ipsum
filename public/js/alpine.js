@@ -13,7 +13,7 @@ document.addEventListener('alpine:init', () => {
                     this.open = !this.open
                 }, 2000)
 
-                let text = document.getElementById('paragraphs').textContent.trim()
+                let text = document.getElementById('paragraphs').innerText.trim()
 
                 return subject => navigator.clipboard.writeText(text)
             },

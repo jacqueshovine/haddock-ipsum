@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Album;
 use App\Models\Word;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -16,5 +17,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Word::factory(20)->create();
+        Album::factory(20)->create();
     }
 }
