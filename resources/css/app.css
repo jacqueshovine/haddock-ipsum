@@ -1,3 +1,11 @@
 @tailwind base;
+
+@layer base {
+    h2 {
+        @apply text-2xl;
+        @apply my-4;
+    }
+}
+
 @tailwind components;
 @tailwind utilities;
