@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Album;
 use App\Models\Word;
 use Illuminate\Database\Eloquent\Collection;
 use Livewire\Component;
@@ -9,7 +10,8 @@ use Livewire\Component;
 class TextGenerator extends Component
 {
 
-    public $count = 1;
+    public mixed $count = 1;
+    public bool $withTitles = false;
     private int $minWordsPerSentence = 3;
     private int $maxWordsPerSentence = 11;
     private int $minSentencesPerParagraph = 5;
@@ -20,18 +22,30 @@ class TextGenerator extends Component
     {
 
         $words = Word::all();
+
+        $count = is_numeric($this->count)
+        ? (int) $this->count
+        : 0;
+
+        $titles = [];
+
+        $paragraphCount = min($count, $this->maxParagraphs);
+
         $paragraphs = ['Haddock ipsum dolor sit amet'];
 
+        if ( $this->withTitles ) {
+            $titles = $this->getTitles($paragraphCount);
+        }
 
         /*
             * TO DO : 
             * - Implement feature to add exclamation marks if desired
             */
 
-        if (!empty($this->count) && $this->count !== 0 && is_numeric($this->count)) {
+        if ( $paragraphCount > 0  ) {
             for (
                 $i = 0;
-                $i < min(max($this->count, 1), $this->maxParagraphs);
+                $i < min(max($paragraphCount, 1), $this->maxParagraphs);
                 $i++
             ) {
 
@@ -55,8 +69,11 @@ class TextGenerator extends Component
         }
 
 
+
         return view('livewire.text-generator', [
-            'paragraphs' => $paragraphs
+            'titles' => $titles,
+            'paragraphs' => $paragraphs,
+            'paragraphCount' => $paragraphCount,
         ]);
     }
 
@@ -66,7 +83,6 @@ class TextGenerator extends Component
         $currentSentenceArray = [];
         $currentSentenceWordCount = 0;
         $currentSentenceTargetWordCount = rand($this->minWordsPerSentence, $this->maxWordsPerSentence);
-        $commaCount = $this->getCommaCount($currentSentenceWordCount);
 
         while ($currentSentenceWordCount < $currentSentenceTargetWordCount) {
 
@@ -162,5 +178,17 @@ class TextGenerator extends Component
         }
 
         return $commas;
+    }
+
+    public function getTitles(int $paragraphCount) {
+        
+        $titles = Album::all();
+        $currentTitles = [];
+
+        for ($i = 0; $i < $paragraphCount; $i++) {
+            array_push($currentTitles, $titles->random(1)->sole()->title);
+        }
+
+        return $currentTitles;
     }
 }

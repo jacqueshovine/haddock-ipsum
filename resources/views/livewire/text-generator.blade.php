@@ -1,13 +1,21 @@
 <div>
-    <div class="flex flex-row justify-between">
+    <div class="flex flex-row justify-between items-center">
         <div>
             <label for="paragraph_count">Paragraphes</label>
-            <input wire:model="count" 
+            <input wire:model.debounce.300ms="count" 
                    type="text" 
                    value="1" 
                    maxlength="2"
                    name="paragraph_count"
                    class="border border-gray-400 p-2 mt-6">
+        </div>
+
+        <div>
+            <input wire:model.debounce.300ms="withTitles" 
+                   type="checkbox"
+                   name="withTitles"
+                   class="p-2 mt-6 h-4 w-4">
+            <label for="withTitles">Titres</label>
         </div>
     
     
@@ -46,9 +54,12 @@
 
 
     <div class="mt-6" id="paragraphs">
-        @foreach($paragraphs as $paragraph)
-            <p class="mt-6 text-justify">{{ $paragraph }}</p>
-        @endforeach
+        @for ( $i = 0; $i < $paragraphCount; $i++ )
+            @unless ( empty($titles) )
+                <h2>{{ $titles[$i] }}</h2>
+            @endunless
+            <p class="mt-6 text-justify">{{ $paragraphs[$i] }}</p>
+        @endfor
     </div>
 </div>
 
