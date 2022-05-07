@@ -18,9 +18,6 @@
             <div class="m-4">
                 @livewire('text-generator')
             </div>
-
-
-            {{-- @livewire('word-generator') --}}
         </section>
     </main>
 </x-layout>
