@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Album;
 use App\Models\Word;
+use App\Helpers\StringHelper;
 use Illuminate\Database\Eloquent\Collection;
 use Livewire\Component;
 
@@ -18,6 +19,8 @@ class TextGenerator extends Component
     private int $minSentencesPerParagraph = 5;
     private int $maxSentencesPerParagraph = 10;
     private int $maxParagraphs = 30;
+    private StringHelper $helper;
+    private string $encoding = "utf8";
 
     public function render()
     {
@@ -25,8 +28,8 @@ class TextGenerator extends Component
         $words = Word::all();
 
         $count = is_numeric($this->count)
-        ? (int) $this->count
-        : 0;
+            ? (int) $this->count
+            : 0;
 
         $titles = [];
 
@@ -34,9 +37,9 @@ class TextGenerator extends Component
 
         $paragraphs = [];
 
-        if ( $paragraphCount > 0 ) {
+        if ($paragraphCount > 0) {
 
-            if ( $this->withTitles ) {
+            if ($this->withTitles) {
                 $titles = $this->getTitles($paragraphCount);
             }
 
@@ -57,11 +60,17 @@ class TextGenerator extends Component
         $currentSentenceArray = [];
         $currentSentenceWordCount = 0;
         $currentSentenceTargetWordCount = rand($this->minWordsPerSentence, $this->maxWordsPerSentence);
+        $helper = new StringHelper();
 
         while ($currentSentenceWordCount < $currentSentenceTargetWordCount) {
 
             if ($currentSentenceWordCount === 0) {
-                array_push($currentSentenceArray, ucfirst($words->random(1)->sole()->singular));
+                array_push(
+                    $currentSentenceArray,
+                    $helper->mb_ucfirst(($words->random(1)->sole()->singular),
+                        $this->encoding
+                    )
+                );
             } else {
                 array_push($currentSentenceArray, $words->random(1)->sole()->singular);
             }
@@ -72,8 +81,8 @@ class TextGenerator extends Component
             $currentSentenceWordCount = count($currentSentenceArray);
         }
 
-        if ( $this->withBang ) {
-           return $this->addBangs($currentSentenceArray);
+        if ($this->withBang) {
+            return $this->addBangs($currentSentenceArray);
         }
 
         $currentSentenceArray = $this->addCommas(
@@ -144,15 +153,18 @@ class TextGenerator extends Component
         return $currentSentenceArrayWithSpaces;
     }
 
-    public function addBangs(array $currentSentenceArray) {
+    public function addBangs(array $currentSentenceArray)
+    {
+
+        $helper = new StringHelper();
 
         // When using exclamation marks, each word starts with an uppercase character.
-        $currentSentenceArray = array_map(fn($word) => ucfirst($word), $currentSentenceArray);
+        $currentSentenceArray = array_map(fn ($word) => $helper->mb_ucfirst($word, $this->encoding), $currentSentenceArray);
 
         // Adding punctuation to last word of the array
         $currentSentenceArray[count($currentSentenceArray) - 1] .= '!... ';
 
-        return implode( "!... ", $currentSentenceArray);
+        return implode("!... ", $currentSentenceArray);
     }
 
     public function getCommaCount(int $currentSentenceWordCount)
@@ -169,8 +181,9 @@ class TextGenerator extends Component
         return $commas;
     }
 
-    public function getTitles(int $paragraphCount) {
-        
+    public function getTitles(int $paragraphCount)
+    {
+
         $titles = Album::all();
         $currentTitles = [];
 
@@ -181,8 +194,9 @@ class TextGenerator extends Component
         return $currentTitles;
     }
 
-    public function getParagraphs(int $paragraphCount) {
-        
+    public function getParagraphs(int $paragraphCount)
+    {
+
         $words = Word::all();
         $paragraphsList = [];
 
