@@ -19,7 +19,6 @@ class TextGenerator extends Component
     private int $minSentencesPerParagraph = 5;
     private int $maxSentencesPerParagraph = 10;
     private int $maxParagraphs = 30;
-    private StringHelper $helper;
     private string $encoding = "utf8";
 
     public function render()
