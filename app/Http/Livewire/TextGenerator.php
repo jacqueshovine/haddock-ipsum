@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Album;
 use App\Models\Word;
 use Illuminate\Database\Eloquent\Collection;
 use Livewire\Component;
@@ -9,7 +10,9 @@ use Livewire\Component;
 class TextGenerator extends Component
 {
 
-    public $count = 1;
+    public mixed $count = 1;
+    public bool $withTitles = false;
+    public bool $withBang = false;
     private int $minWordsPerSentence = 3;
     private int $maxWordsPerSentence = 11;
     private int $minSentencesPerParagraph = 5;
@@ -20,43 +23,31 @@ class TextGenerator extends Component
     {
 
         $words = Word::all();
-        $paragraphs = ['Haddock ipsum dolor sit amet'];
 
+        $count = is_numeric($this->count)
+        ? (int) $this->count
+        : 0;
 
-        /*
-            * TO DO : 
-            * - Implement feature to add exclamation marks if desired
-            */
+        $titles = [];
 
-        if (!empty($this->count) && $this->count !== 0 && is_numeric($this->count)) {
-            for (
-                $i = 0;
-                $i < min(max($this->count, 1), $this->maxParagraphs);
-                $i++
-            ) {
+        $paragraphCount = min($count, $this->maxParagraphs);
 
-                /*
-                    * TO DO : 
-                    * - The same word should not appear twice in a row
-                    * - Add punctuation
-                    * - Uppercase first letter of each paragraph and after a full stop
-                    */
+        $paragraphs = [];
 
-                $currentSentencesCount = rand($this->minSentencesPerParagraph, $this->maxSentencesPerParagraph);
+        if ( $paragraphCount > 0 ) {
 
-                $currentParagraph = '';
-
-                for ($j = 0; $j < $currentSentencesCount; $j++) {
-                    $currentParagraph .= $this->buildSentence($words);
-                }
-
-                $paragraphs[$i] = $currentParagraph;
+            if ( $this->withTitles ) {
+                $titles = $this->getTitles($paragraphCount);
             }
+
+            $paragraphs = $this->getParagraphs($paragraphCount);
         }
 
 
         return view('livewire.text-generator', [
-            'paragraphs' => $paragraphs
+            'titles' => $titles,
+            'paragraphs' => $paragraphs,
+            'paragraphCount' => $paragraphCount,
         ]);
     }
 
@@ -66,7 +57,6 @@ class TextGenerator extends Component
         $currentSentenceArray = [];
         $currentSentenceWordCount = 0;
         $currentSentenceTargetWordCount = rand($this->minWordsPerSentence, $this->maxWordsPerSentence);
-        $commaCount = $this->getCommaCount($currentSentenceWordCount);
 
         while ($currentSentenceWordCount < $currentSentenceTargetWordCount) {
 
@@ -80,6 +70,10 @@ class TextGenerator extends Component
             $currentSentenceArray = array_unique($currentSentenceArray);
 
             $currentSentenceWordCount = count($currentSentenceArray);
+        }
+
+        if ( $this->withBang ) {
+           return $this->addBangs($currentSentenceArray);
         }
 
         $currentSentenceArray = $this->addCommas(
@@ -150,6 +144,17 @@ class TextGenerator extends Component
         return $currentSentenceArrayWithSpaces;
     }
 
+    public function addBangs(array $currentSentenceArray) {
+
+        // When using exclamation marks, each word starts with an uppercase character.
+        $currentSentenceArray = array_map(fn($word) => ucfirst($word), $currentSentenceArray);
+
+        // Adding punctuation to last word of the array
+        $currentSentenceArray[count($currentSentenceArray) - 1] .= '!... ';
+
+        return implode( "!... ", $currentSentenceArray);
+    }
+
     public function getCommaCount(int $currentSentenceWordCount)
     {
 
@@ -162,5 +167,43 @@ class TextGenerator extends Component
         }
 
         return $commas;
+    }
+
+    public function getTitles(int $paragraphCount) {
+        
+        $titles = Album::all();
+        $currentTitles = [];
+
+        for ($i = 0; $i < $paragraphCount; $i++) {
+            array_push($currentTitles, $titles->random(1)->sole()->title);
+        }
+
+        return $currentTitles;
+    }
+
+    public function getParagraphs(int $paragraphCount) {
+        
+        $words = Word::all();
+        $paragraphsList = [];
+
+        for (
+            $i = 0;
+            $i < min(max($paragraphCount, 1), $this->maxParagraphs);
+            $i++
+        ) {
+
+            $currentSentencesCount = rand($this->minSentencesPerParagraph, $this->maxSentencesPerParagraph);
+
+            $currentParagraph = '';
+
+            for ($j = 0; $j < $currentSentencesCount; $j++) {
+                $currentParagraph .= $this->buildSentence($words);
+            }
+
+            $paragraphsList[$i] = $currentParagraph;
+        }
+
+
+        return $paragraphsList;
     }
 }

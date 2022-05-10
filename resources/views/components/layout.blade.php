@@ -21,13 +21,11 @@
 </style>
 
 <body>
-    <section class="max-w-4xl mx-auto h-32 bg-blue-700 min-h-fit md:flex md:justify-center md:items-center">
-        <header class="mx-4 p-4 ">
-            <h1 class="text-4xl">Haddock ipsum</h1>
-        </header>
-    </section>
-    <section class="pb-4 max-w-4xl mx-auto">
-        <nav class="p-4 md:flex md:justify-between md:items-center bg-blue-200 border-t-2 border-double border-orange-500">
+    <header class="max-w-4xl mx-auto h-32 bg-blue-700 min-h-fit md:flex md:justify-center md:items-center">
+        <img src="images/banner_haddock_ipsum.jpg" class="object-fill">
+    </header>
+    <nav class="pb-4 max-w-4xl mx-auto">
+        <div class="p-4 md:flex md:justify-between md:items-center bg-blue-200 border-t-2 border-double border-orange-500">
             <div>
                 <x-navlink class="ml-0">Haddock ipsum</x-navlink>
                 {{-- <x-navlink>Haddock mockup</x-navlink> --}}
@@ -36,8 +34,8 @@
             <div>
                 <x-navlink href="https://github.com/jacqueshovine/haddock-ipsum">Github</x-navlink>
             </div>
-        </nav>
-    </section>
+        </div>
+    </nav>
 
     {{ $slot }}
 

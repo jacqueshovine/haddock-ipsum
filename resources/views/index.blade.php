@@ -1,6 +1,6 @@
 <x-layout>
     <main>
-        <section class="py-4 max-w-4xl mx-auto">
+        <section class="max-w-4xl mx-auto">
             <div class="m-4 pb-4 border-b-2 border-solid border-orange-500">
                 <p class="my-4">
                     Haddock ipsum est un générateur de faux-texte personnalisé créé sur le modèle du 
@@ -18,9 +18,6 @@
             <div class="m-4">
                 @livewire('text-generator')
             </div>
-
-
-            {{-- @livewire('word-generator') --}}
         </section>
     </main>
 </x-layout>
