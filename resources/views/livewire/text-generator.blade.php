@@ -17,7 +17,14 @@
                    class="p-2 mt-6 h-4 w-4">
             <label for="withTitles">Titres</label>
         </div>
-    
+
+        <div>
+            <input wire:model.debounce.300ms="withBang" 
+                   type="checkbox"
+                   name="withBang"
+                   class="p-2 mt-6 h-4 w-4">
+            <label for="withBang">Mille sabords!</label>
+        </div>
     
         <div x-data="copy_button" 
              class="flex space-x-2 mt-6">
