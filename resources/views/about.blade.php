@@ -22,7 +22,7 @@
                 </p>
             </div>
             <div class="flex-initial w-64 m-4">
-                <x-about-image></x-about-image>
+                <x-about-image src="haddock_instruit.jpg"></x-about-image>
             </div>
         </x-about-section>
 
