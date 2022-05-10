@@ -10,7 +10,7 @@ use Livewire\Component;
 class TextGenerator extends Component
 {
 
-    public mixed $count = 1;
+    public mixed $count = 0;
     public bool $withTitles = false;
     private int $minWordsPerSentence = 3;
     private int $maxWordsPerSentence = 11;
@@ -31,7 +31,7 @@ class TextGenerator extends Component
 
         $paragraphCount = min($count, $this->maxParagraphs);
 
-        $paragraphs = ['Haddock ipsum dolor sit amet'];
+        $paragraphs = [];
 
         if ( $this->withTitles ) {
             $titles = $this->getTitles($paragraphCount);
@@ -67,8 +67,6 @@ class TextGenerator extends Component
                 $paragraphs[$i] = $currentParagraph;
             }
         }
-
-
 
         return view('livewire.text-generator', [
             'titles' => $titles,

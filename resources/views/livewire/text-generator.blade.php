@@ -54,12 +54,16 @@
 
 
     <div class="mt-6" id="paragraphs">
-        @for ( $i = 0; $i < $paragraphCount; $i++ )
-            @unless ( empty($titles) )
-                <h2>{{ $titles[$i] }}</h2>
-            @endunless
-            <p class="mt-6 text-justify">{{ $paragraphs[$i] }}</p>
-        @endfor
+        @if ( empty($paragraphs) )
+            <p class="mt-6 text-justify">Haddock ipsum dolor sit amet</p>
+        @else
+            @for ( $i = 0; $i < $paragraphCount; $i++ )
+                @unless ( empty($titles) )
+                    <h2>{{ $titles[$i] }}</h2>
+                @endunless
+                <p class="mt-6 text-justify">{{ $paragraphs[$i] }}</p>
+            @endfor
+        @endif
     </div>
 </div>
 
