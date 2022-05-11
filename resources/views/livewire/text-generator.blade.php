@@ -1,5 +1,5 @@
 <div>
-    <div class="flex flex-row justify-between items-center">
+    <div class="flex flex-wrap justify-between items-center">
         <div>
             <label for="paragraph_count">Paragraphes</label>
             <input wire:model.debounce.300ms="count" 

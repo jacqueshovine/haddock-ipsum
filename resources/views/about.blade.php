@@ -21,7 +21,7 @@
                 A utiliser sans modération, au risque d'y perdre son (faux) latin.
                 </p>
             </div>
-            <div class="flex-initial w-64 m-4">
+            <div class="flex-initial w-64 m-4 text-center">
                 <x-about-image src="haddock_instruit.jpg"></x-about-image>
             </div>
         </x-about-section>
@@ -33,15 +33,17 @@
                     <x-about-link href="https://baconipsum.com/">
                         Bacon ipsum.
                     </x-about-link>
-                   Les plus observateurs noteront que je me suis grandement inspiré de ce site pour créer le mien.
                 </p>
                 <p class="my-4">Tintinophile depuis mon plus jeune âge et développeur web de formation, 
                     j'ai saisi l'occasion de créer un outil utile et amusant tout en exerçant mes compétences.
                 </p>
+                <p>
+                    Les plus observateurs noteront que je me suis grandement inspiré du site de Bacon Ipsum pour créer le mien.
+                </p>
             </div>
-            <div class="flex-initial w-64 m-4">
+            <div class="flex-initial w-64 m-4 text-center">
                 <x-about-image src="papier_sandwich.jpg">
-                    Le papier de mon délicieux sandwich
+                    Fier membre de Neurchi de Tintin depuis 2019
                 </x-about-image>
             </div>
         </x-about-section>
@@ -68,9 +70,9 @@
                     (2004) d'Albert Algoud. Plus pratique que de parcourir tous les albums! Il a quand même fallu remplir la base de données à la main.
                 </p>
             </div>
-            <div class="flex-initial w-64 m-4">
-                <x-about-image src="papier_sandwich.jpg">
-                    Fier membre de Neurchi de Tintin depuis 2019
+            <div class="flex-initial w-64 m-4 text-center">
+                <x-about-image src="tintin_radio.png" alt="Genèse d'Haddock Ipsum">
+                    La création du site
                 </x-about-image>
             </div>
         </x-about-section>
@@ -98,6 +100,10 @@
                     des insultes n'apparaissant qu'au singulier dans les albums, et vice-versa.
                 </p>
             </div>
+        </x-about-section>
+        
+        <x-about-section>
+            <x-about-image src="haddock_rigolo.jpg"></x-about-image>
         </x-about-section>
     </main>
 </x-layout>
