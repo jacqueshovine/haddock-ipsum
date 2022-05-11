@@ -19,7 +19,6 @@ class TextGenerator extends Component
     private int $minSentencesPerParagraph = 5;
     private int $maxSentencesPerParagraph = 10;
     private int $maxParagraphs = 30;
-    private string $encoding = "utf8";
 
     public function render()
     {
@@ -66,8 +65,7 @@ class TextGenerator extends Component
             if ($currentSentenceWordCount === 0) {
                 array_push(
                     $currentSentenceArray,
-                    $helper->mb_ucfirst(($words->random(1)->sole()->singular),
-                        $this->encoding
+                    $helper->mb_ucfirst(($words->random(1)->sole()->singular)
                     )
                 );
             } else {
@@ -158,7 +156,7 @@ class TextGenerator extends Component
         $helper = new StringHelper();
 
         // When using exclamation marks, each word starts with an uppercase character.
-        $currentSentenceArray = array_map(fn ($word) => $helper->mb_ucfirst($word, $this->encoding), $currentSentenceArray);
+        $currentSentenceArray = array_map(fn ($word) => $helper->mb_ucfirst($word), $currentSentenceArray);
 
         // Adding punctuation to last word of the array
         $currentSentenceArray[count($currentSentenceArray) - 1] .= '!... ';
