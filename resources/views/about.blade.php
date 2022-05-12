@@ -21,7 +21,7 @@
                 A utiliser sans modération, au risque d'y perdre son (faux) latin.
                 </p>
             </div>
-            <div class="flex-initial w-64 m-4">
+            <div class="flex-initial w-64 m-4 text-center">
                 <x-about-image src="haddock_instruit.jpg"></x-about-image>
             </div>
         </x-about-section>
@@ -33,15 +33,17 @@
                     <x-about-link href="https://baconipsum.com/">
                         Bacon ipsum.
                     </x-about-link>
-                   Les plus observateurs noteront que je me suis grandement inspiré de ce site pour créer le mien.
                 </p>
                 <p class="my-4">Tintinophile depuis mon plus jeune âge et développeur web de formation, 
                     j'ai saisi l'occasion de créer un outil utile et amusant tout en exerçant mes compétences.
                 </p>
+                <p>
+                    Les plus observateurs noteront que je me suis grandement inspiré du site de Bacon Ipsum pour créer le mien.
+                </p>
             </div>
-            <div class="flex-initial w-64 m-4">
-                <x-about-image src="papier_sandwich.jpg">
-                    Le papier de mon délicieux sandwich
+            <div class="flex-initial w-64 m-4 text-center">
+                <x-about-image src="haddock_1.jpg">
+                    Fier membre de Neurchi de Tintin depuis 2019
                 </x-about-image>
             </div>
         </x-about-section>
@@ -68,9 +70,9 @@
                     (2004) d'Albert Algoud. Plus pratique que de parcourir tous les albums! Il a quand même fallu remplir la base de données à la main.
                 </p>
             </div>
-            <div class="flex-initial w-64 m-4">
-                <x-about-image src="papier_sandwich.jpg">
-                    Fier membre de Neurchi de Tintin depuis 2019
+            <div class="flex-initial w-64 m-4 text-center">
+                <x-about-image src="tintin_radio.png" alt="Genèse d'Haddock Ipsum">
+                    La création du site (ca. 2022)
                 </x-about-image>
             </div>
         </x-about-section>
@@ -82,10 +84,7 @@
                     Non! J'ai décidé d'en retirer certains de façon tout à fait arbitraire.
                 </p>
                 <p class="my-4">
-                    C'est notamment le cas pour les insultes ne s'adressant qu'à un seul personnage dans des conditions spécifiques
-                    (Par exemple, "Calamité" employé pour qualifier la pauvre Castafiore, ou "Chenapan" pour fustiger Abdallah).
-                </p>
-                <p class="my-4">
+                    C'est notamment le cas pour certaines variantes d'insultes ne s'adressant qu'à un seul personnage dans des conditions spécifiques.
                     Certains mots de <i>L'intégrale des jurons du Capitaine Haddock</i> figurent séparés de leur contexte et n'ont pas vraiment de sens
                     en dehors. Je les ai retirés pour le moment.
                 </p>
@@ -94,9 +93,16 @@
                     les inclure dans le générateur pour l'instant.
                 </p>
                 <p class="my-4">
-                    Certains jurons ne s'emploient qu'au singulier, d'autres seulement au pluriel. Il se peut que j'aie fait des erreurs et accordé en nombre
-                    des insultes n'apparaissant qu'au singulier dans les albums, et vice-versa.
+                    Le générateur n'utilise que des mots au singulier, comme si Haddock invectivait une seule personne et non un groupe.
+                    Par souci de cohérence, seules les insultes au masculin sont employées, la gente féminine n'étant que rarement 
+                    (à l'exception de la pauvre Castafiore) la cible du courroux du capitaine.
                 </p>
+            </div>
+        </x-about-section>
+        
+        <x-about-section>
+            <div class="flex-initial w-64 m-4 text-center">
+                <x-about-image src="haddock_rigolo.jpg"></x-about-image>
             </div>
         </x-about-section>
     </main>

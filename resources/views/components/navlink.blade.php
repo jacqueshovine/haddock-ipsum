@@ -1,5 +1,5 @@
 @props([
-    'class' => 'ml-3',
+    'class' => 'mx-3',
     'href' => '/',
 ])
 

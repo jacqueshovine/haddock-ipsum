@@ -17,4 +17,9 @@ class WordController extends Controller
     {
         return Word::find($id);
     }
+
+    public function list()
+    {
+        return Word::select('singular')->get();
+    }
 }

@@ -19,6 +19,7 @@ class WordFactory extends Factory
         return [
             'singular' => $this->faker->word(),
             'plural' => $this->faker->word(),
+            'enabled' => $this->faker->boolean(80),
         ];
     }
 }
