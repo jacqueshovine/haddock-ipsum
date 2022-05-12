@@ -42,7 +42,7 @@
                 </p>
             </div>
             <div class="flex-initial w-64 m-4 text-center">
-                <x-about-image src="papier_sandwich.jpg">
+                <x-about-image src="haddock_1.jpg">
                     Fier membre de Neurchi de Tintin depuis 2019
                 </x-about-image>
             </div>

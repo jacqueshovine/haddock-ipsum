@@ -4,6 +4,7 @@
 /public/css/app.css
 /public/js/app.js
 /public/images/*
+/public/images/about/*
 /public/vendor
 /storage/*.key
 /vendor

@@ -4,6 +4,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="/js/alpine.js"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <x-analytics.gtag></x-analytics.gtag>
 </head>
 
@@ -14,7 +16,7 @@
             <a href="/" class="text-center text-blue-600">Retour à Moulinsart</a>
         </div>
         <div class="my-4 mx-auto">
-            <img src="images/404.jpg" class="h-96">
+            <img class="h-96" src="images/404.jpg">
         </div>
     </main>
 </body>
