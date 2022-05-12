@@ -72,7 +72,7 @@
             </div>
             <div class="flex-initial w-64 m-4 text-center">
                 <x-about-image src="tintin_radio.png" alt="Genèse d'Haddock Ipsum">
-                    La création du site
+                    La création du site (ca. 2022)
                 </x-about-image>
             </div>
         </x-about-section>
@@ -84,10 +84,7 @@
                     Non! J'ai décidé d'en retirer certains de façon tout à fait arbitraire.
                 </p>
                 <p class="my-4">
-                    C'est notamment le cas pour les insultes ne s'adressant qu'à un seul personnage dans des conditions spécifiques
-                    (Par exemple, "Calamité" employé pour qualifier la pauvre Castafiore, ou "Chenapan" pour fustiger Abdallah).
-                </p>
-                <p class="my-4">
+                    C'est notamment le cas pour certaines variantes d'insultes ne s'adressant qu'à un seul personnage dans des conditions spécifiques.
                     Certains mots de <i>L'intégrale des jurons du Capitaine Haddock</i> figurent séparés de leur contexte et n'ont pas vraiment de sens
                     en dehors. Je les ai retirés pour le moment.
                 </p>
@@ -96,14 +93,17 @@
                     les inclure dans le générateur pour l'instant.
                 </p>
                 <p class="my-4">
-                    Certains jurons ne s'emploient qu'au singulier, d'autres seulement au pluriel. Il se peut que j'aie fait des erreurs et accordé en nombre
-                    des insultes n'apparaissant qu'au singulier dans les albums, et vice-versa.
+                    Le générateur n'utilise que des mots au singulier, comme si Haddock invectivait une seule personne et non un groupe.
+                    Par souci de cohérence, seules les insultes au masculin sont employées, la gente féminine n'étant que rarement 
+                    (à l'exception de la pauvre Castafiore) la cible du courroux du capitaine.
                 </p>
             </div>
         </x-about-section>
         
         <x-about-section>
-            <x-about-image src="haddock_rigolo.jpg"></x-about-image>
+            <div class="flex-initial w-64 m-4 text-center">
+                <x-about-image src="haddock_rigolo.jpg"></x-about-image>
+            </div>
         </x-about-section>
     </main>
 </x-layout>

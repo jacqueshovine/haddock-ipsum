@@ -10,7 +10,9 @@
     <link href="/css/alpine.css" rel="stylesheet">
     <script src="/js/alpine.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
-    {{-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
+
+    <x-analytics.gtag></x-analytics.gtag>
+
     @livewireStyles
 </head>
 
