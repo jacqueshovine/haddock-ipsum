@@ -23,7 +23,7 @@ class TextGenerator extends Component
     public function render()
     {
 
-        $words = Word::all();
+        $totalWords = count(Word::where('enabled', 1)->get());
 
         $count = is_numeric($this->count)
             ? (int) $this->count
@@ -35,7 +35,7 @@ class TextGenerator extends Component
 
         $paragraphs = [];
 
-        if ($paragraphCount > 0) {
+        if ( $paragraphCount > 0 && $totalWords > 0 ) {
 
             if ($this->withTitles) {
                 $titles = $this->getTitles($paragraphCount);
@@ -194,7 +194,7 @@ class TextGenerator extends Component
     public function getParagraphs(int $paragraphCount)
     {
 
-        $words = Word::all();
+        $words = Word::where('enabled', 1)->get();
         $paragraphsList = [];
 
         for (

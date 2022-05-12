@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('singular')->unique();
             $table->string('plural')->nullable();
+            $table->boolean('enabled');
         });
     }
 
