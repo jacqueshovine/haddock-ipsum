@@ -4,6 +4,7 @@
 /public/css/app.css
 /public/js/app.js
 /public/images/*
+/public/vendor
 /storage/*.key
 /vendor
 .env
@@ -15,3 +16,5 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+*_prod.php
+.env.prod
