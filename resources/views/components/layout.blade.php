@@ -1,6 +1,7 @@
 <!doctype html>
 
 <head>
+    <x-analytics.gtag></x-analytics.gtag>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Haddock Ipsum</title>
@@ -9,10 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="/css/alpine.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
     <script src="/js/alpine.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <x-analytics.gtag></x-analytics.gtag>
 
     @livewireStyles
 </head>
@@ -24,6 +24,10 @@
 </style>
 
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PVMZSQT"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <header class="max-w-4xl mx-auto md:flex md:justify-center md:items-center">
         <img src="images/banner_haddock_ipsum.jpg" class="object-fill">
     </header>

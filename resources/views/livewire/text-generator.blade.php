@@ -28,7 +28,8 @@
     
         <div x-data="copy_button" 
              class="flex space-x-2 mt-6">
-            <button 
+            <button
+                id="copy_button"
                 type="button"
                 data-mdb-ripple="true"
                 data-mdb-ripple-color="light"
