@@ -34,7 +34,7 @@
                         Bacon ipsum.
                     </x-about-link>
                 </p>
-                <p class="my-4">Tintinophile depuis mon plus jeune âge et développeur web de formation, 
+                <p class="my-4">Lecteur des albums de Tintin depuis mon plus jeune âge et développeur web de formation, 
                     j'ai saisi l'occasion de créer un outil utile et amusant tout en exerçant mes compétences.
                 </p>
                 <p>
@@ -42,8 +42,12 @@
                 </p>
             </div>
             <div class="flex-initial w-64 m-4 text-center">
-                <x-about-image src="haddock_1.jpg">
-                    Fier membre de Neurchi de Tintin depuis 2019
+                <x-about-image src="jacques.jpg">
+                    Fier membre de
+                    <x-about-link href="https://www.facebook.com/groups/2189510671267500/">
+                        Neurchi de Tintin
+                    </x-about-link> 
+                    depuis 2019
                 </x-about-image>
             </div>
         </x-about-section>
@@ -64,15 +68,26 @@
                     Le choix d'utiliser Laravel n'est probablement pas le plus adapté, 
                     il s'agit d'une préférence personelle en raison de mon intérêt pour le framework.
                 </p>
+                <p class="my-4">
+                    Merci à mon ami et mentor 
+                    <x-about-link href="https://github.com/Mopolo">
+                        Mopolo
+                    </x-about-link>
+                    pour ses conseils et pour son aide sur des bugs frustrants au point d'emprunter le vocabulaire du capitaine.
+                </p>
                 <h3>Contenu</h3>
                 <p class="my-4">
                     Je me suis souvenu avoir en ma possession <i>L'intégrale des jurons du Capitaine Haddock</i>
-                    (2004) d'Albert Algoud. Plus pratique que de parcourir tous les albums! Il a quand même fallu remplir la base de données à la main.
+                    (2004) d'Albert Algoud. Plus pratique que de parcourir tous les albums! 
+                    Il a quand même fallu remplir la base de données à la main (plus de 220 mots).
                 </p>
             </div>
-            <div class="flex-initial w-64 m-4 text-center">
+            <div class="flex flex-col flex-initial w-64 m-4 text-center justify-center items-center">
                 <x-about-image src="tintin_radio.png" alt="Genèse d'Haddock Ipsum">
                     La création du site (ca. 2022)
+                </x-about-image>
+                <x-about-image src="haddock_debug.png" alt="Débogage d'Haddock Ipsum">
+                    Le débogage du site (ca. 2022)
                 </x-about-image>
             </div>
         </x-about-section>

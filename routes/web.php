@@ -24,3 +24,11 @@ Route::get('/', function () {
 Route::get('about', function () {
     return view('about');
 });
+
+Route::get('tintin', function () {
+    return view('tintin');
+});
+
+Route::get('zouave', function () {
+    return view('zouave');
+});

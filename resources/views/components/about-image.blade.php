@@ -4,5 +4,5 @@
     'alt' => '',
 ])
 
-<img src="{{ "images/about/" . $src }}" class="{{ $class }}" alt={{ $alt }}>
+<img src="{{ "images/about/" . $src }}" class="{{ $class }}" alt="{{ $alt }}">
 <figcaption>{{ $slot }}</figcaption>
