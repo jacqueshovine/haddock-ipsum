@@ -7,7 +7,7 @@
                     Le lorem ipsum (lipsum) est le nom donné au texte générique utilisé à l'origine en imprimerie
                     pour tester une mise en page en attendant le contenu final. 
                     Le texte de remplissage n'a pas de sens, son but est avant tout visuel :
-                    les paragraphes doivent donner l'impression d'authentiques colonnes de journal.
+                    les paragraphes doivent ressembler à d'authentiques colonnes de journal.
                     Aujourd'hui, on utilise également le lorem pour remplir des maquettes, des sites web en développement, etc.
                 </p>
                 <p class="my-4">
