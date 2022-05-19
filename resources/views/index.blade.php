@@ -15,6 +15,8 @@
                 </p>
             </div>
 
+            <img src="http://localhost/api/image">
+
             <div class="m-4">
                 @livewire('text-generator')
             </div>

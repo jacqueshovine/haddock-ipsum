@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\WordController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,3 +23,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('words', [WordController::class, 'index']);
 Route::get('words/{word}', [WordController::class, 'show']);
 Route::get('list', [WordController::class, 'list']);
+
+Route::get('image', [ImageController::class, 'show']);
