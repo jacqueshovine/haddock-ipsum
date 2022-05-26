@@ -16,8 +16,10 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('extension');
+            $table->string('artist')->nullable();
+            $table->string('meme_artist')->nullable();
         });
     }
 

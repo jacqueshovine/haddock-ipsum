@@ -24,4 +24,4 @@ Route::get('words', [WordController::class, 'index']);
 Route::get('words/{word}', [WordController::class, 'show']);
 Route::get('list', [WordController::class, 'list']);
 
-Route::get('image', [ImageController::class, 'show']);
+Route::get('image/{w?}/{h?}', [ImageController::class, 'show']);
