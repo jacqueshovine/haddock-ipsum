@@ -5,12 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use \Gumlet\ImageResize;
+use \Intervention\Image\ImageManager;
 
 class ImageController extends Controller
 {
 
     private int $minSize = 100;
     private int $maxSize = 2000;
+
+    /**
+     * To do : 
+     * Look in DB image sizes to get images that are closest to asked dimensions
+     * 
+     */
 
     public function show($w = null, $h = null)
     {
@@ -45,11 +52,11 @@ class ImageController extends Controller
 
     public function cropImage($w, $h, $imageName, $imagePath)
     {
-        $image = new ImageResize($imagePath);
+        $imagick = new ImageManager(['driver' => 'imagick']);
 
-        $image->crop($w, $h, $allow_enlarge = True);
+        $image = $imagick->make($imagePath)->crop($w, $h);
 
-        $resizedImagePath = 'images/api/resized_' . $imageName;
+        $resizedImagePath = 'images/api/cropped_' . $imageName;
 
         $image->save($resizedImagePath);
 
@@ -59,9 +66,9 @@ class ImageController extends Controller
 
     public function resizeImage($w, $imageName, $imagePath)
     {
-        $image = new ImageResize($imagePath);
+        $imagick = new ImageManager(['driver' => 'imagick']);
 
-        $image->resizeToWidth($w, $allow_enlarge = True);
+        $image = $imagick->make($imagePath)->widen($w);
 
         $resizedImagePath = 'images/api/resized_' . $imageName;
 
